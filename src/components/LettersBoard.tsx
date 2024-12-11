@@ -1,10 +1,18 @@
 import { letters } from "../helpers/letters";
 
-export function LettersBoard() {
+interface LettersBoardProps {
+  checkLetter: (letter: string) => void;
+}
+
+export function LettersBoard({ checkLetter }: LettersBoardProps) {
   return (
     <div>
       {letters.map((letter) => {
-        return <button key={letter}>{letter}</button>;
+        return (
+          <button onClick={() => checkLetter(letter)} key={letter}>
+            {letter}
+          </button>
+        );
       })}
     </div>
   );

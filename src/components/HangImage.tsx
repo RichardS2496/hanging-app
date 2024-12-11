@@ -31,7 +31,11 @@ export function HangImage({ imageNumber }: Props) {
   }
   return (
     <>
-      <img src={images[imageNumber]} alt="Hang Image" />
+      <img
+        src={images[imageNumber]}
+        style={{ width: "250px" }}
+        alt="Hang Image"
+      />
     </>
   );
 }
