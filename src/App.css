@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .App {
   display: flex;
   flex-direction: column;
@@ -5,4 +9,5 @@
   margin: 0;
   width: 100%;
   max-width: 1240px;
+  background-color: #242424;
 }

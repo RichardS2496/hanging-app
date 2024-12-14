@@ -1,8 +1,5 @@
 import { letters } from "../helpers/letters";
-
-interface LettersBoardProps {
-  checkLetter: (letter: string) => void;
-}
+import { LettersBoardProps } from "../interfaces/LetterBoardTypes";
 
 export function LettersBoard({ checkLetter }: LettersBoardProps) {
   return (

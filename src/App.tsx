@@ -9,12 +9,12 @@ function App() {
 
   return (
     <>
-      <div className="App">
+      <div className="App text-red-900">
         <HangImage imageNumber={attempts} />
         <h3>{hiddenWord}</h3>
         <h3>Intentos: {attempts}</h3>
-        {lose ? <h3>Ha Perdido {word}</h3> : ""}
-        {won ? <h3>¡Ha Ganado!</h3> : ""}
+        {lose ? <h3 className="text-red-50">Ha Perdido {word}</h3> : ""}
+        {won ? <h3 className="text-blue">¡Ha Ganado!</h3> : ""}
         <button onClick={restartGame}>Restart</button>
         <LettersBoard checkLetter={checkLetter} />
       </div>
