@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import { HangImage } from "./components/HangImage";
 import { LettersBoard } from "./components/LettersBoard";
 import { useHangmanGame } from "./hooks/useHangmanGame";
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div className="App text-red-900">
+      <div className="App">
         <HangImage imageNumber={attempts} />
         <h3>{hiddenWord}</h3>
         <h3>Intentos: {attempts}</h3>
