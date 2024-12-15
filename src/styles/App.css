@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.App {
+  width: 100%;
+  height: 100vh;
+
+  @apply flex flex-row gap-4;
+}
+
+.border-content {
+  @apply rounded-xl border-8;
+}
+
+.left-side {
+  @apply w-3/4 bg-slate-500 flex flex-col justify-between gap-4;
+}
+
+.left-side-content {
+  @apply flex flex-row justify-between items-center p-8;
+}
+
+.left-side-letterBoard {
+  @apply p-8;
+}
+
+.right-side {
+  @apply w-1/4 bg-slate-500 p-8;
+}
