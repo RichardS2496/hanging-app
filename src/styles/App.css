@@ -18,11 +18,15 @@
 }
 
 .left-side-content {
-  @apply flex flex-row justify-between items-center p-8;
+  @apply h-1/2 flex flex-row justify-between items-center p-8;
 }
 
-.left-side-letterBoard {
-  @apply p-8;
+.intern-left-side-content {
+  @apply w-1/2 h-full flex justify-center items-center;
+}
+
+.word-side {
+  @apply font-bold text-white text-4xl;
 }
 
 .right-side {

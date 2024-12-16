@@ -7,6 +7,11 @@ export function useHangmanGame() {
   const [hiddenWord, setHiddenWord] = useState("_ ".repeat(word.length));
   const [lose, setLose] = useState(false);
   const [won, setWon] = useState(false);
+  const [usedKeys, setUsedKeys] = useState<string[]>([]);
+
+  const alreadyPressed = (key: string) => {
+    setUsedKeys((prev) => [...prev, key]);
+  };
 
   useEffect(() => {
     if (attempts >= 9) {
@@ -44,7 +49,19 @@ export function useHangmanGame() {
     setHiddenWord("_ ".repeat(newWord.length));
     setLose(false);
     setWon(false);
+    setUsedKeys([]);
   };
 
-  return { restartGame, checkLetter, attempts, hiddenWord, word, lose, won };
+  return {
+    restartGame,
+    checkLetter,
+    attempts,
+    hiddenWord,
+    word,
+    lose,
+    won,
+    usedKeys,
+    setUsedKeys,
+    alreadyPressed,
+  };
 }

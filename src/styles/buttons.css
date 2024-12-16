@@ -1,3 +1,15 @@
-button {
-  @apply bg-red-700;
+.left-side-letterBoard {
+  background-image: url("../assets/keyBoard-bg.png");
+  background-position: top;
+  background-size: cover;
+  @apply h-1/2 p-8 flex flex-row gap-2 flex-wrap
+    justify-center;
+}
+
+.btn-pressed {
+  @apply bg-slate-500;
+}
+
+.letter-btn {
+  @apply w-[50px] rounded-xl text-2xl p-2 border-4 font-semibold;
 }
