@@ -1,3 +1,5 @@
+import "../styles/hangimg.css";
+
 import image0 from "../assets/0.png";
 import image1 from "../assets/1.png";
 import image2 from "../assets/2.png";
@@ -33,8 +35,8 @@ export function HangImage({ imageNumber }: Props) {
     <>
       <img
         src={images[imageNumber]}
-        style={{ width: "150px" }}
-        alt="Hang Image"
+        alt="HangMan Image"
+        className="hangman-img"
       />
     </>
   );

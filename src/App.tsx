@@ -23,10 +23,10 @@ function App() {
       <div className="App">
         <div className="left-side border-content">
           <div className="left-side-content ">
-            <div className="intern-left-side-content">
+            <div className="intern-left-side-content w-[40%]">
               <HangImage imageNumber={attempts} />
             </div>
-            <div className="intern-left-side-content word-side">
+            <div className="intern-left-side-content word-side w-[60%]">
               <h3>{hiddenWord}</h3>
             </div>
           </div>

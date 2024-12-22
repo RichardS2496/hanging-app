@@ -5,16 +5,17 @@
 .App {
   width: 100%;
   height: 100vh;
-
+  padding: 1rem;
+  overflow: hidden;
   @apply flex flex-row gap-4;
 }
 
 .border-content {
-  @apply rounded-xl border-8;
+  @apply rounded-xl border-8 border-gray-600 overflow-hidden;
 }
 
 .left-side {
-  @apply w-3/4 bg-slate-500 flex flex-col justify-between gap-4;
+  @apply h-full w-3/4 bg-slate-700 flex flex-col justify-between gap-4;
 }
 
 .left-side-content {
@@ -22,7 +23,7 @@
 }
 
 .intern-left-side-content {
-  @apply w-1/2 h-full flex justify-center items-center;
+  @apply h-full flex justify-center items-center;
 }
 
 .word-side {
@@ -30,5 +31,5 @@
 }
 
 .right-side {
-  @apply w-1/4 bg-slate-500 p-8;
+  @apply h-full w-1/4 bg-slate-700 p-8;
 }
