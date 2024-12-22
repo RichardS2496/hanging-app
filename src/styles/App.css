@@ -11,7 +11,7 @@
 }
 
 .border-content {
-  @apply rounded-xl border-8 border-gray-600 overflow-hidden;
+  @apply rounded-xl border-8 border-yellow-950 overflow-hidden;
 }
 
 .left-side {
@@ -35,5 +35,5 @@
 }
 
 .right-side {
-  @apply h-full w-1/4 bg-amber-100 p-8;
+  @apply flex flex-col gap-8 h-full w-1/4 bg-amber-100 p-4;
 }

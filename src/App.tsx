@@ -1,11 +1,26 @@
 import "./styles/App.css";
 import "./styles/buttons.css";
+
 import { HangImage } from "./components/HangImage";
 import { LettersBoard } from "./components/LettersBoard";
 import { SongPlayer } from "./components/SongPlayer";
 import { useHangmanGame } from "./hooks/useHangmanGame";
 
+import { useEffect } from "react";
+import { Popup } from "./components/Popup";
+import { usePopup } from "./hooks/usePopup";
+
 function App() {
+  const {
+    popupMessage,
+    isPopupVisible,
+    popupButtonText,
+    startGame,
+    showWinPopup,
+    showLosePopup,
+    setIsPopupVisible,
+  } = usePopup();
+
   const {
     restartGame,
     checkLetter,
@@ -18,8 +33,36 @@ function App() {
     alreadyPressed,
   } = useHangmanGame();
 
+  useEffect(() => {
+    setIsPopupVisible(true);
+  }, [setIsPopupVisible]);
+
+  useEffect(() => {
+    if (won) {
+      showWinPopup();
+    } else if (lose) {
+      showLosePopup();
+    }
+  }, [won, lose, showWinPopup, showLosePopup]);
+
   return (
     <>
+      <Popup
+        message={popupMessage}
+        buttonText={popupButtonText}
+        onButtonClick={() => {
+          setIsPopupVisible(false); // Cerrar el popup
+          if (
+            popupMessage === "¡Has Ganado!" ||
+            popupMessage === "¡Has Perdido!"
+          ) {
+            restartGame(); // Reiniciar el juego si se ganó o perdió
+          } else {
+            startGame(); // Empezar el juego si está en un estado inicial
+          }
+        }}
+        isVisible={isPopupVisible}
+      />
       <div className="App">
         <div className="left-side border-content">
           <div className="left-side-content ">
@@ -41,12 +84,26 @@ function App() {
           </div>
         </div>
         <div className="right-side border-content">
-          <SongPlayer />
-          <button onClick={restartGame}>Restart</button>
-
-          <h3>Intentos: {attempts}</h3>
-          {lose ? <h3 className="text-red-50">Ha Perdido {word}</h3> : ""}
-          {won ? <h3 className="text-blue">¡Ha Ganado!</h3> : ""}
+          <div className="flex flex-row justify-between items-center">
+            <SongPlayer />
+            <button
+              className="song-toggle-btn text-amber-100 font-semibold"
+              onClick={restartGame}
+            >
+              Reiniciar Juego
+            </button>
+          </div>
+          <div>
+            <h3 className="text-center font-bold text-xl text-yellow-800">
+              Intentos
+            </h3>
+            <h2 className="text-center font-bold text-6xl text-yellow-800">
+              {attempts}
+              <span className="text-2xl">/9</span>
+            </h2>
+            {lose ? <h3 className="text-black">Ha Perdido {word}</h3> : ""}
+            {won ? <h3 className="text-blue">¡Ha Ganado!</h3> : ""}
+          </div>
         </div>
       </div>
     </>

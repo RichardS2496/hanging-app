@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 export function usePlaySong(songSrc: string) {
-  const [isPlayingSong, setIsPlayingSong] = useState(true);
+  const [isPlayingSong, setIsPlayingSong] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -26,5 +26,5 @@ export function usePlaySong(songSrc: string) {
       setIsPlayingSong((prev) => !prev);
     }
   };
-  return { isPlayingSong, togglePlaySong };
+  return { isPlayingSong, setIsPlayingSong, togglePlaySong };
 }

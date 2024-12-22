@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getRandomWord } from "../helpers/getRandomWord";
+import { usePopup } from "./usePopup";
 
 export function useHangmanGame() {
   const [attempts, setAttempts] = useState(0);
@@ -8,6 +9,8 @@ export function useHangmanGame() {
   const [lose, setLose] = useState(false);
   const [won, setWon] = useState(false);
   const [usedKeys, setUsedKeys] = useState<string[]>([]);
+
+  const { setIsPopupVisible } = usePopup();
 
   const alreadyPressed = (key: string) => {
     setUsedKeys((prev) => [...prev, key]);
@@ -50,6 +53,8 @@ export function useHangmanGame() {
     setLose(false);
     setWon(false);
     setUsedKeys([]);
+    setIsPopupVisible(false);
+    alreadyPressed("");
   };
 
   return {
