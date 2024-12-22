@@ -15,11 +15,15 @@
 }
 
 .left-side {
-  @apply h-full w-3/4 bg-slate-700 flex flex-col justify-between gap-4;
+  background-image: url("../assets/hangman-game-bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  @apply h-full w-3/4 bg-slate-700 flex flex-col
+    justify-between gap-4;
 }
 
 .left-side-content {
-  @apply h-1/2 flex flex-row justify-between items-center p-8;
+  @apply h-1/2 flex flex-row justify-between items-center;
 }
 
 .intern-left-side-content {
@@ -31,5 +35,5 @@
 }
 
 .right-side {
-  @apply h-full w-1/4 bg-slate-700 p-8;
+  @apply h-full w-1/4 bg-amber-100 p-8;
 }

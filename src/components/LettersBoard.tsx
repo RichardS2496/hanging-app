@@ -7,11 +7,14 @@ export function LettersBoard({
   checkLetter,
   alreadyPressed,
   usedKeys,
+  won,
+  lose,
 }: LettersBoardProps) {
   const rows = [0, 10, 20];
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
+      if (won || lose) return;
       const keyPressed = event.key.toUpperCase();
       if (letters.includes(keyPressed)) {
         checkLetter(keyPressed);
@@ -22,7 +25,7 @@ export function LettersBoard({
     return () => {
       document.removeEventListener("keypress", handleKeyDown);
     };
-  }, [checkLetter, usedKeys, alreadyPressed]);
+  }, [checkLetter, usedKeys, alreadyPressed, lose, won]);
 
   return (
     <div className="flex flex-col justify-center items-center gap-2">
@@ -35,7 +38,7 @@ export function LettersBoard({
                 className={`letter-btn ${
                   usedKeys.includes(letter) ? "btn-pressed" : ""
                 }`}
-                disabled={usedKeys.includes(letter)}
+                disabled={usedKeys.includes(letter) || lose || won}
                 onClick={() => {
                   checkLetter(letter);
                   alreadyPressed(letter);

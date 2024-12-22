@@ -1,4 +1,3 @@
 .hangman-img {
-  width: 100%;
-  object-fit: cover;
+  @apply w-full mt-4;
 }

@@ -23,18 +23,20 @@ function App() {
       <div className="App">
         <div className="left-side border-content">
           <div className="left-side-content ">
-            <div className="intern-left-side-content w-[40%]">
+            <div className="intern-left-side-content w-[40%] px-8 pt-8 z-1">
               <HangImage imageNumber={attempts} />
             </div>
             <div className="intern-left-side-content word-side w-[60%]">
               <h3>{hiddenWord}</h3>
             </div>
           </div>
-          <div className="left-side-letterBoard">
+          <div className="left-side-letterBoard z-0">
             <LettersBoard
               checkLetter={checkLetter}
               alreadyPressed={alreadyPressed}
               usedKeys={usedKeys}
+              won={won}
+              lose={lose}
             />
           </div>
         </div>
