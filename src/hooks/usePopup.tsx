@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/popup.css";
 
 export function usePopup() {
-  const [popupMessage, setPopupMessage] = useState<string>("El ahorcado");
+  const [popupMessage, setPopupMessage] = useState<string>("HANGMAN");
   const [isPopupVisible, setIsPopupVisible] = useState<boolean>(false);
   const [popupButtonText, setPopupButtonText] =
     useState<string>("Empezar Juego");

@@ -12,12 +12,12 @@
 }
 
 .popup {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
+  height: 180px;
+  padding: 2rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
-  min-width: 300px;
+  min-width: 380px;
+  @apply flex flex-col justify-center rounded-xl border-8 border-yellow-950 bg-amber-100;
 }
 
 .popup-message {

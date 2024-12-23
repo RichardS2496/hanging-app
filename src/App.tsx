@@ -28,7 +28,6 @@ function App() {
     lose,
     won,
     hiddenWord,
-    word,
     usedKeys,
     alreadyPressed,
   } = useHangmanGame();
@@ -45,20 +44,37 @@ function App() {
     }
   }, [won, lose, showWinPopup, showLosePopup]);
 
+  useEffect(() => {
+    const elements = document.querySelectorAll(
+      "button, input, a, textarea, select"
+    );
+    elements.forEach((el) => {
+      if (isPopupVisible) {
+        el.setAttribute("tabindex", "-1");
+      } else {
+        el.removeAttribute("tabindex");
+      }
+    });
+
+    return () => {
+      elements.forEach((el) => el.removeAttribute("tabindex"));
+    };
+  }, [isPopupVisible]);
+
   return (
     <>
       <Popup
         message={popupMessage}
         buttonText={popupButtonText}
         onButtonClick={() => {
-          setIsPopupVisible(false); // Cerrar el popup
+          setIsPopupVisible(false);
           if (
             popupMessage === "¡Has Ganado!" ||
             popupMessage === "¡Has Perdido!"
           ) {
-            restartGame(); // Reiniciar el juego si se ganó o perdió
+            restartGame();
           } else {
-            startGame(); // Empezar el juego si está en un estado inicial
+            startGame();
           }
         }}
         isVisible={isPopupVisible}
@@ -101,8 +117,6 @@ function App() {
               {attempts}
               <span className="text-2xl">/9</span>
             </h2>
-            {lose ? <h3 className="text-black">Ha Perdido {word}</h3> : ""}
-            {won ? <h3 className="text-blue">¡Ha Ganado!</h3> : ""}
           </div>
         </div>
       </div>
