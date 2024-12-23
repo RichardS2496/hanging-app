@@ -38,10 +38,12 @@ export function LettersBoard({
                 className={`letter-btn ${
                   usedKeys.includes(letter) ? "btn-pressed" : ""
                 }`}
-                disabled={!usedKeys.includes(letter) || lose || won}
+                disabled={usedKeys.includes(letter) || lose || won}
                 onClick={() => {
-                  checkLetter(letter);
-                  alreadyPressed(letter);
+                  if (!usedKeys.includes(letter)) {
+                    checkLetter(letter);
+                    alreadyPressed(letter);
+                  }
                 }}
                 key={letter}
               >
