@@ -12,8 +12,8 @@ export function useHangmanGame() {
 
   const { setIsPopupVisible } = usePopup();
 
-  const alreadyPressed = (key: string) => {
-    setUsedKeys((prev) => [...prev, key]);
+  const alreadyPressed = (letter: string) => {
+    setUsedKeys((prevUsedKeys) => [...prevUsedKeys, letter]);
   };
 
   useEffect(() => {

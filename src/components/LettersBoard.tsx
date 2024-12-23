@@ -16,7 +16,7 @@ export function LettersBoard({
     const handleKeyDown = (event: KeyboardEvent) => {
       if (won || lose) return;
       const keyPressed = event.key.toUpperCase();
-      if (letters.includes(keyPressed)) {
+      if (letters.includes(keyPressed) && !usedKeys.includes(keyPressed)) {
         checkLetter(keyPressed);
         alreadyPressed(keyPressed);
       }
@@ -38,7 +38,7 @@ export function LettersBoard({
                 className={`letter-btn ${
                   usedKeys.includes(letter) ? "btn-pressed" : ""
                 }`}
-                disabled={usedKeys.includes(letter) || lose || won}
+                disabled={!usedKeys.includes(letter) || lose || won}
                 onClick={() => {
                   checkLetter(letter);
                   alreadyPressed(letter);
